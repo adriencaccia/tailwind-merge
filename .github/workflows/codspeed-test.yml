@@ -29,6 +29,6 @@ jobs:
             - name: Run benchmarks
               uses: CodSpeedHQ/action@v3
               with:
-                run: 'yarn bench'
+                run: node -r @swc-node/register ./benchmarks/bench.ts
               env:
                 CODSPEED_DEBUG: true
