@@ -1,26 +1,23 @@
-name: 'CodeQL'
+name: codspeed-benchmarks-test
 
 on:
     push:
-        branches: [main]
-    schedule:
-        - cron: '30 8 * * 5'
+        branches:
+            - 'main'
+    pull_request:
+    workflow_dispatch:
 
 jobs:
-    analyze:
-        name: Analyze
+    benchmarks:
         runs-on: ubuntu-latest
-        permissions:
-            actions: read
-            contents: read
-            security-events: write
-
         steps:
             - uses: actions/checkout@v4
             - name: Use Node.js 20
               uses: actions/setup-node@v4
               with:
                   node-version: 20.11.1
+                  # More info: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
+                  registry-url: 'https://registry.npmjs.org'
             - name: Use node_modules cache
               uses: actions/cache@v4
               with:
@@ -28,11 +25,10 @@ jobs:
                   key: yarn-node-20-lock-${{ hashFiles('yarn.lock') }}
                   restore-keys: |
                       yarn-node-20-lock-
-            - name: Initialize CodeQL
-              uses: github/codeql-action/init@v3
-              with:
-                  languages: javascript
             - run: yarn install --frozen-lockfile
-            - run: yarn build
-            - name: Perform CodeQL Analysis
-              uses: github/codeql-action/analyze@v3
+            - name: Run benchmarks
+              uses: CodSpeedHQ/action@v3
+              with:
+                run: 'yarn bench'
+              env:
+                CODSPEED_DEBUG: true
