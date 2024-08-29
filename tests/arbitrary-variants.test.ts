@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { twMerge } from '../src'
 
 test('basic arbitrary variants', () => {

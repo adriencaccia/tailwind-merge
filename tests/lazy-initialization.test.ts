@@ -1,9 +1,7 @@
-import { expect, test, vi } from 'vitest'
-
 import { createTailwindMerge, getDefaultConfig } from '../src'
 
 test('lazy initialization', () => {
-    const initMock = vi.fn(getDefaultConfig)
+    const initMock = jest.fn(getDefaultConfig)
     const twMerge = createTailwindMerge(initMock)
 
     expect(initMock).not.toHaveBeenCalled()

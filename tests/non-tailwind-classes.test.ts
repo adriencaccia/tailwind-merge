@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { twMerge } from '../src'
 
 test('does not alter non-tailwind classes', () => {

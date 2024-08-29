@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { twMerge } from '../src'
 
 test('merges classes with per-side border colors correctly', () => {

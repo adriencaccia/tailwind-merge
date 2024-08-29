@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { twMerge } from '../src'
 
 test('handles conflicts across class groups correctly', () => {

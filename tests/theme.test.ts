@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { extendTailwindMerge, fromTheme } from '../src'
 
 test('theme scale can be extended', () => {

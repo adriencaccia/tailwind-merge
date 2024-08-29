@@ -9,6 +9,7 @@ import { dts } from 'rollup-plugin-dts'
 
 import pkg from '../package.json' assert { type: 'json' }
 
+// eslint-disable-next-line import/no-default-export
 export default defineConfig([
     // Default entry point
     {

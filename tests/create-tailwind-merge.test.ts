@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { createTailwindMerge } from '../src'
 
 test('createTailwindMerge works with single config function', () => {

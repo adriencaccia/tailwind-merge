@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { getDefaultConfig } from '../src'
 import { Config, DefaultClassGroupIds, DefaultThemeGroupIds } from '../src/lib/types'
 

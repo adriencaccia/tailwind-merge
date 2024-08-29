@@ -1,5 +1,3 @@
-import { expect, test } from 'vitest'
-
 import { mergeConfigs } from '../src'
 
 test('mergeConfigs has correct behavior', () => {
